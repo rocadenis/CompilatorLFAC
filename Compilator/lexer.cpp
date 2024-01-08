@@ -1,5 +1,6 @@
+#line 2 "lexer.cpp"
 
-#line 3 "lex.yy.c"
+#line 4 "lexer.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -20,6 +21,7 @@
 #include <string.h>
 #include <errno.h>
 #include <stdlib.h>
+
 
 /* end standard C headers. */
 
@@ -537,10 +539,10 @@ char *yytext;
 #line 2 "lexer.l"
 #include <stdio.h>
 #include <iostream>
-#include "parser.tab.h"
+#include "y.tab.h"
 #include <string>
-#line 543 "lex.yy.c"
-#line 544 "lex.yy.c"
+#line 544 "lexer.cpp"
+#line 545 "lexer.cpp"
 
 #define INITIAL 0
 
@@ -759,7 +761,7 @@ YY_DECL
 	{
 #line 7 "lexer.l"
 
-#line 763 "lex.yy.c"
+#line 764 "lexer.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -1082,7 +1084,7 @@ YY_RULE_SETUP
 #line 64 "lexer.l"
 ECHO;
 	YY_BREAK
-#line 1086 "lex.yy.c"
+#line 1087 "lexer.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

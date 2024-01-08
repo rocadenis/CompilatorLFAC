@@ -35,8 +35,8 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_YY_PARSER_TAB_H_INCLUDED
-# define YY_YY_PARSER_TAB_H_INCLUDED
+#ifndef YY_YY_Y_TAB_H_INCLUDED
+# define YY_YY_Y_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -105,10 +105,63 @@ extern int yydebug;
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
+/* Token kinds.  */
+#define YYEMPTY -2
+#define YYEOF 0
+#define YYerror 256
+#define YYUNDEF 257
+#define INTEGER 258
+#define FLOAT 259
+#define CHAR 260
+#define STRING 261
+#define BOOL 262
+#define VOID 263
+#define CLASA 264
+#define PUBLIC 265
+#define PRIVAT 266
+#define CONST 267
+#define FUNCTIE 268
+#define GLOBAL 269
+#define PRINCIPAL 270
+#define TIP 271
+#define VECTOR 272
+#define EVAL 273
+#define TYPEOF 274
+#define EGAL 275
+#define IF 276
+#define FOR 277
+#define WHILE 278
+#define ACOLADA_DESCHISA 279
+#define ACOLADA_INCHISA 280
+#define PARANTEZA_DESCHISA 281
+#define PARANTEZA_INCHISA 282
+#define SEMICOLON 283
+#define PLUS 284
+#define MINUS 285
+#define INMULTIT 286
+#define IMPARTIT 287
+#define SI_LOGIC 288
+#define SAU_LOGIC 289
+#define NEGARE 290
+#define EGALITATE 291
+#define DIFERIT 292
+#define COMMA 293
+#define MAI_MIC 294
+#define MAI_MIC_EGAL 295
+#define MAI_MARE 296
+#define MAI_MARE_EGAL 297
+#define BOOL_TRUE 298
+#define BOOL_FALSE 299
+#define IDENTIFIER 300
+#define NUME_ARBITRAR 301
+#define NUMAR 302
+#define NUMAR_FLOAT 303
+#define QUOTES_STRING 304
+#define CARACTER 305
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-union YYSTYPE
+union YYSTYPE;
 {
 #line 12 "parser.y"
 
@@ -117,7 +170,7 @@ union YYSTYPE
     float num_float;
     bool boolean;
 
-#line 121 "parser.tab.h"
+#line 174 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -132,4 +185,4 @@ extern YYSTYPE yylval;
 int yyparse (void);
 
 
-#endif /* !YY_YY_PARSER_TAB_H_INCLUDED  */
+#endif /* !YY_YY_Y_TAB_H_INCLUDED  */

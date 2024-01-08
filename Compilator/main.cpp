@@ -1,15 +1,30 @@
-#include <iostream>
+#include "SymbolTable.h"
 #include "parser.tab.h"
+#include <string>
+#include <iostream>
 
-int main(int argc, char** argv) {
-  yyin = fopen(argv[1], "r");
-  yyparse();
 
-  FILE* variableTable = fopen("tabels/symbol_table.txt", "w");
-  DumpObjectsToFile(variableTable);
 
-  FILE* functionTable = fopen("tabels/symbol_table_functions.txt", "w");
-  DumpFunctionsToFile(functionTable);
+int main() {
+  // Create an instance of the SymbolTable class
+  SymbolTable symbolTable;
+
+  // Add variable information
+  symbolTable.addVariable("variable1", "int", "10", "global");
+  symbolTable.addVariable("variable2", "float", "3.14", "function1");
+
+  // Add function information
+  std::vector<std::pair<std::string, std::string>> params = {{"int", "param1"}, {"float", "param2"}};
+  symbolTable.addFunction("function1", "void", params, "class1");
+
+  // Parse the input code
+  if (yyparse() != 0) {
+    std::cerr << "Parse error" << std::endl;
+    return 1;
+  }
+
+  // Print the symbol table to a text file
+  symbolTable.printToFile("output.txt");
 
   return 0;
 }

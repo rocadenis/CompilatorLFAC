@@ -1,12 +1,9 @@
 %{
 #include <stdio.h>
-#include <string.h>
+#include <iostream>
 #include "parser.tab.h"
-
-extern void yyerror(char *s);
-extern int yyparse(void);
+#include <string>
 %}
-
 %%
 "NumI" {yylval.value = strdup(yytext); return INTEGER;}
 "NumF" {yylval.value = strdup(yytext);return FLOAT;}
@@ -47,6 +44,7 @@ extern int yyparse(void);
 "<=" {return MAI_MIC_EGAL;}
 ">" {return MAI_MARE;}
 ">=" {return MAI_MARE_EGAL;}
+"," {return COMMA;}
 ";" {return SEMICOLON;}
 
 "True" {yylval.value=strdup(yytext);return BOOL_TRUE;}
@@ -64,3 +62,15 @@ extern int yyparse(void);
 . {return yytext[0];}
 
 %%
+
+
+union YYSTYPE {
+  int integer;
+  double float;
+  char character;
+  char* string;
+  bool bool_value;
+  char* identifier;
+};
+extern void yyerror(char *s);
+extern int yyparse(void);
