@@ -1,8 +1,0 @@
-Variable and Constant Symbol Table:
-{:<15} {:<15} {:<15} {:<15}
-variable2 float 3.14 function1
-variable1 int 10 global
-
-Function Symbol Table:
-{:<15} {:<15} {:<30} {:<15}
-function1 void int param1, float param2 class1
