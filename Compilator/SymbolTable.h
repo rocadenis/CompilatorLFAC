@@ -5,6 +5,8 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include "y.tab.h"
+#include "comp.tab.h"
 
 // Structure to represent information about variables or constants
 struct VariableInfo {
