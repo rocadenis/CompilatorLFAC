@@ -329,6 +329,7 @@ FILE *yyin = NULL, *yyout = NULL;
 typedef int yy_state_type;
 
 extern int yylineno;
+
 int yylineno = 1;
 
 extern char *yytext;
@@ -362,21 +363,21 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[137] =
     {   0,
-        0,    0,   53,   51,   48,   49,   31,   51,   51,   51,
-       23,   24,   27,   25,   38,   26,   28,   44,   39,   34,
-       17,   36,   43,   43,   43,   43,   43,   43,   43,   43,
-       43,   43,   43,   43,   43,   43,   43,   43,   21,   51,
-       22,   51,   33,    0,   29,    0,   50,    0,   44,   35,
-       32,   37,   43,   43,   43,   43,   43,   43,   43,   43,
-       43,   43,   43,   43,   43,   43,   18,   43,   43,   43,
-       43,   43,   30,   42,   46,   47,   45,   44,   43,    3,
-       43,   43,   43,    4,   43,   43,   43,   43,   19,   43,
-       43,   43,   43,   13,   43,   43,   42,    5,   15,   43,
+        0,    0,   53,   51,   48,   49,   33,   51,   51,   51,
+       25,   26,   29,   27,   40,   28,   30,   44,   41,   36,
+       19,   38,   43,   43,   43,   43,   43,   43,   43,   43,
+       43,   43,   43,   43,   43,   43,   43,   43,   23,   51,
+       24,   51,   35,    0,   31,    0,   50,    0,   44,   37,
+       34,   39,   43,   43,   43,   43,   43,   43,   43,   43,
+       43,   43,   43,   43,   43,   43,   20,   43,   43,   43,
+       43,   43,   32,   42,   46,   47,   45,   44,   43,    3,
+       43,   43,   43,    4,   43,   43,   43,   43,   21,   43,
+       43,   43,   43,   15,   43,   43,   42,    5,   17,   43,
 
-        2,    1,   40,   43,   43,   43,   43,   43,   43,   43,
-       43,   43,   43,   41,   43,    6,    9,   43,   43,   43,
-       43,   43,   43,   20,   16,   43,   11,   43,    8,    7,
-       14,   10,   43,   43,   12,    0
+        2,    1,    6,   43,   43,   43,   43,   43,   43,   43,
+       43,   43,   43,    7,   43,    8,   11,   43,   43,   43,
+       43,   43,   43,   22,   18,   43,   13,   43,   10,    9,
+       16,   12,   43,   43,   14,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -535,7 +536,7 @@ char *yytext;
 #line 2 "comp.l"
 #include <stdio.h>
 #include <iostream>
-#include "y.tab.h"
+#include "comp.tab.h"
 #include <string>
 #line 541 "lex.yy.c"
 #line 542 "lex.yy.c"
@@ -755,7 +756,7 @@ YY_DECL
 		}
 
 	{
-#line 7 "comp.l"
+#line 8 "comp.l"
 
 #line 761 "lex.yy.c"
 
@@ -816,259 +817,259 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 8 "comp.l"
-{yylval.num = atoi(yytext); return INTEGER;}
+#line 9 "comp.l"
+{ yylval.num = atoi(yytext); return INTEGER; }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 9 "comp.l"
-{yylval.num_float = atof(yytext); return FLOAT;}
+#line 10 "comp.l"
+{ yylval.num_float = atof(yytext); return FLOAT; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 10 "comp.l"
-{yylval.character = yytext[0]; return CHAR;}
+#line 11 "comp.l"
+{ yylval.character = yytext[0]; return CHAR; }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 11 "comp.l"
-{yylval.string = strdup(yytext); return STRING;}
+#line 12 "comp.l"
+{ yylval.string = strdup(yytext); return STRING; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 12 "comp.l"
-{yylval.bool_value = (strcmp(yytext, "true") == 0); return BOOL;}
+#line 13 "comp.l"
+{ yylval.bool_value = (strcmp(yytext, "true") == 0); return BOOL; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 15 "comp.l"
-{return CLASA;}
+#line 14 "comp.l"
+{ yylval.identifier = strdup(yytext); return BOOL_TRUE; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 16 "comp.l"
-{return PUBLIC;}
+#line 15 "comp.l"
+{ yylval.identifier = strdup(yytext); return BOOL_FALSE; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 17 "comp.l"
-{return PRIVAT;}
+#line 18 "comp.l"
+{ return CLASA; }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 18 "comp.l"
-{return CONST;}
+#line 19 "comp.l"
+{ return PUBLIC; }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 19 "comp.l"
-{return FUNCTIE;}
+#line 20 "comp.l"
+{ return PRIVAT; }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 20 "comp.l"
-{return GLOBAL;}
+#line 21 "comp.l"
+{ return CONST; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 21 "comp.l"
-{return PRINCIPAL;}
+#line 22 "comp.l"
+{ return FUNCTIE; }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 22 "comp.l"
-{return TIP;}
+#line 23 "comp.l"
+{ return GLOBAL; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 23 "comp.l"
-{return VECTOR;}
+#line 24 "comp.l"
+{ return PRINCIPAL; }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 24 "comp.l"
-{return EVAL;}
+#line 25 "comp.l"
+{ return TIP; }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 25 "comp.l"
-{return TYPEOF;}
+#line 26 "comp.l"
+{ return VECTOR; }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 26 "comp.l"
-{return EGAL;}
+#line 27 "comp.l"
+{ return EVAL; }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 27 "comp.l"
-{return IF;}
+#line 28 "comp.l"
+{ return TYPEOF; }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 28 "comp.l"
-{return FOR;}
+#line 29 "comp.l"
+{ return EGAL; }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 29 "comp.l"
-{return WHILE;}
+#line 30 "comp.l"
+{ return IF; }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 30 "comp.l"
-{return ACOLADA_DESCHISA;}
+#line 31 "comp.l"
+{ return FOR; }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 31 "comp.l"
-{return ACOLADA_INCHISA;}
+#line 32 "comp.l"
+{ return WHILE; }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 32 "comp.l"
-{return PARANTEZA_DESCHISA;}
+#line 33 "comp.l"
+{ return ACOLADA_DESCHISA; }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 33 "comp.l"
-{return PARANTEZA_INCHISA;}
+#line 34 "comp.l"
+{ return ACOLADA_INCHISA; }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 34 "comp.l"
-{return PLUS;}
+#line 35 "comp.l"
+{ return PARANTEZA_DESCHISA; }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 35 "comp.l"
-{return MINUS;}
+#line 36 "comp.l"
+{ return PARANTEZA_INCHISA; }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 36 "comp.l"
-{return INMULTIT;}
+#line 37 "comp.l"
+{ return PLUS; }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 37 "comp.l"
-{return IMPARTIT;}
+#line 38 "comp.l"
+{ return MINUS; }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 38 "comp.l"
-{return SI_LOGIC;}
+#line 39 "comp.l"
+{ return INMULTIT; }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 39 "comp.l"
-{return SAU_LOGIC;}
+#line 40 "comp.l"
+{ return IMPARTIT; }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 40 "comp.l"
-{return NEGARE;}
+#line 41 "comp.l"
+{ return SI_LOGIC; }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 41 "comp.l"
-{return EGALITATE;}
+#line 42 "comp.l"
+{ return SAU_LOGIC; }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 42 "comp.l"
-{return DIFERIT;}
+#line 43 "comp.l"
+{ return NEGARE; }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 43 "comp.l"
-{return MAI_MIC;}
+#line 44 "comp.l"
+{ return EGALITATE; }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 44 "comp.l"
-{return MAI_MIC_EGAL;}
+#line 45 "comp.l"
+{ return DIFERIT; }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 45 "comp.l"
-{return MAI_MARE;}
+#line 46 "comp.l"
+{ return MAI_MIC; }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 46 "comp.l"
-{return MAI_MARE_EGAL;}
+#line 47 "comp.l"
+{ return MAI_MIC_EGAL; }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 47 "comp.l"
-{return COMMA;}
+#line 48 "comp.l"
+{ return MAI_MARE; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 48 "comp.l"
-{return SEMICOLON;}
+#line 49 "comp.l"
+{ return MAI_MARE_EGAL; }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
 #line 50 "comp.l"
-{yylval.value=strdup(yytext);return BOOL_TRUE;}
+{ return COMMA; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
 #line 51 "comp.l"
-{yylval.value=strdup(yytext);return BOOL_FALSE;}
+{ return SEMICOLON; }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 52 "comp.l"
-{yylval.value=strdup(yytext);return IDENTIFIER;}
+#line 53 "comp.l"
+{ yylval.value = strdup(yytext); return IDENTIFIER; }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 53 "comp.l"
-{yylval.value=strdup(yytext);return NUME_ARBITRAR;}
+#line 54 "comp.l"
+{ yylval.value = strdup(yytext); return NUME_ARBITRAR; }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 54 "comp.l"
-{yylval.value=strdup(yytext); return NUMAR;}
+#line 55 "comp.l"
+{ yylval.value = strdup(yytext); return NUMAR; }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 55 "comp.l"
-{yylval.value=strdup(yytext); return NUMAR_FLOAT;}
+#line 56 "comp.l"
+{ yylval.value = strdup(yytext); return NUMAR_FLOAT; }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 56 "comp.l"
-{yylval.value=strdup(yytext); return QUOTES_STRING;}
+#line 57 "comp.l"
+{ yylval.value = strdup(yytext); return QUOTES_STRING; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 57 "comp.l"
-{yylval.value=strdup(yytext); return CARACTER;}
+#line 58 "comp.l"
+{ yylval.value = strdup(yytext); return CARACTER; }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 59 "comp.l"
+#line 60 "comp.l"
 ;
 	YY_BREAK
 case 49:
 /* rule 49 can match eol */
 YY_RULE_SETUP
-#line 60 "comp.l"
-{++yylineno;}
+#line 61 "comp.l"
+{ ++yylineno; }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 61 "comp.l"
-{++yylineno;}
+#line 62 "comp.l"
+{ ++yylineno; }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 62 "comp.l"
-{return yytext[0];}
+#line 63 "comp.l"
+{ return yytext[0]; }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
@@ -2083,14 +2084,12 @@ void yyfree (void * ptr )
 #line 64 "comp.l"
 
 
-
-union YYSTYPE {
-  int integer;
-  double float;
-  char character;
-  char* string;
-  bool bool_value;
-  char* identifier;
-};
 extern void yyerror(char *s);
 extern int yyparse(void);
+
+int yywrap() {
+    // Aici poți introduce orice cod necesar
+    // Dacă nu ai nevoie de cod suplimentar, lasă funcția goală.
+    return 1; // De obicei se returnează 1 pentru a indica sfârșitul analizei
+}
+

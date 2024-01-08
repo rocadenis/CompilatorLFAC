@@ -5,15 +5,20 @@
 #include "y.tab.h" 
 #include "SymbolTable.h"
 int yylex();
-int yylineno;
+extern int yylineno;
 void yyerror(const char *s);
 %}
 
 %union {
-    std::string* str;
+     std::string* str;
     int num;
     float num_float;
     bool boolean;
+    char character;
+    char* string;
+    char* identifier;
+    bool bool_value; 
+    char* value;  
 }
 
 %token INTEGER FLOAT CHAR STRING BOOL VOID
@@ -90,6 +95,7 @@ type_specifier:
     | EVAL TIP
     | TYPEOF TIP
     | NUME_ARBITRAR TIP
+    | VOID TIP  // Acest lucru ar trebui să fie un terminal, nu un nonterminal
     ;
 
 global_variables:
@@ -130,29 +136,36 @@ control_statement:
     ;
 
 expression_constant:
-  INTEGER
-  | FLOAT
-  | CHAR
-  | STRING
-  | BOOL_TRUE
-  | BOOL_FALSE
+    INTEGER  
+    | FLOAT
+    | CHAR
+    | STRING
+    | BOOL_TRUE
+    | BOOL_FALSE
+    | NUMAR
+    | NUMAR_FLOAT
+    | QUOTES_STRING
+    | CARACTER
+    | VOID
+    ;
 
 expression:
-  IDENTIFIER
-  | constant
-  | expression PLUS expression
-  | expression MINUS expression
-  | expression INMULTIT expression
-  | expression IMPARTIT expression
-  | expression SI_LOGIC expression
-  | expression SAU_LOGIC expression
-  | NEGARE expression
-  | expression EGALITATE expression_constant
-  | expression DIFERIT expression_constant
-  | expression MAI_MIC expression_constant
-  | expression MAI_MIC_EGAL expression_constant
-  | expression MAI_MARE expression_constant
-  | expression MAI_MARE_EGAL expression_constant
+    IDENTIFIER
+    | constant
+    | expression PLUS expression
+    | expression MINUS expression
+    | expression INMULTIT expression
+    | expression IMPARTIT expression
+    | expression SI_LOGIC expression
+    | expression SAU_LOGIC expression
+    | NEGARE expression
+    | expression EGALITATE expression_constant
+    | expression DIFERIT expression_constant
+    | expression MAI_MIC expression_constant
+    | expression MAI_MIC_EGAL expression_constant
+    | expression MAI_MARE expression_constant
+    | expression MAI_MARE_EGAL expression_constant
+    ;
 
 constant:
     INTEGER  
@@ -176,16 +189,8 @@ main_function:
 
 void yyerror(const char *s) {
     fprintf(stderr, "Error: %s at line %d\n", s, yylineno);
-    YYACCEPT; // Don't shift when there are conflict errors
+    exit(1); // Don't shift when there are conflict errors
 }
 
-int main(void) {
-    yyparse();
-    FILE* variableTable = fopen("input.txt", "w");
-  printToFile(variableTable);
-  FILE* functionTable = fopen("input.txt", "w");
-  printToFile(functionTable);
-    return 0;
-}
 
 
