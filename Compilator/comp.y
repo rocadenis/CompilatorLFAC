@@ -1,32 +1,44 @@
 %{
 #include <stdio.h>
-#include <string>
-#include <iostream>
-#include "y.tab.h" 
-#include "SymbolTable.h"
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include "definiton.h"
+#include "adaptare.h"
+#include "ast.h"
+#include "comp.tab.h"
+#include "context.h"
+#include "crearefctii.h"
+#include "functii.h"
+#include "strdate.h"
+#include "strdate_f.h"
+#include "tabele.h"
+extern FILE* yyin;
 int yylex();
 extern int yylineno;
+extern char* yytext;
 void yyerror(const char *s);
 %}
 
 %union {
-     std::string* str;
+    std::string* str;
     int num;
     float num_float;
     bool boolean;
     char character;
     char* string;
     char* identifier;
+    Node* ASTNODE;
     bool bool_value; 
     char* value;  
 }
 
-%token INTEGER FLOAT CHAR STRING BOOL VOID
-%token CLASA PUBLIC PRIVAT CONST FUNCTIE GLOBAL PRINCIPAL TIP VECTOR EVAL TYPEOF
+%token <value> INTEGER FLOAT CHAR STRING BOOL VOID IDENTIFIER 
+%token CLASA PUBLIC PRIVAT CONST FUNCTIE GLOBAL MAIN TIP VECTOR EVAL TYPEOF
 %token EGAL IF FOR WHILE ACOLADA_DESCHISA ACOLADA_INCHISA PARANTEZA_DESCHISA PARANTEZA_INCHISA SEMICOLON
 %token PLUS MINUS INMULTIT IMPARTIT SI_LOGIC SAU_LOGIC NEGARE EGALITATE DIFERIT COMMA
 %token MAI_MIC MAI_MIC_EGAL MAI_MARE MAI_MARE_EGAL
-%token BOOL_TRUE BOOL_FALSE IDENTIFIER NUME_ARBITRAR NUMAR NUMAR_FLOAT QUOTES_STRING CARACTER
+%token <value> BOOL_TRUE BOOL_FALSE NUME_ARBITRAR NUMAR NUMAR_FLOAT QUOTES_STRING CARACTER
 
 %left PLUS MINUS
 %left INMULTIT IMPARTIT
@@ -35,6 +47,9 @@ void yyerror(const char *s);
 %left EGALITATE DIFERIT
 %left MAI_MIC MAI_MIC_EGAL MAI_MARE MAI_MARE_EGAL
 
+%type <value> class_declaration
+%type <value> function_definition
+%type <value> type_specifier
 %%
 
 program:
@@ -62,7 +77,7 @@ user_defined_types:
 
 
 class_declaration:
-    CLASA IDENTIFIER ACOLADA_DESCHISA class_body ACOLADA_INCHISA
+    CLASA IDENTIFIER {DeclareType($2); ClassContext($2);} ACOLADA_DESCHISA class_body ACOLADA_INCHISA SEMICOLON {ExitContext();}
     ;
 
 global_functions:
@@ -86,16 +101,16 @@ declaration:
     ;
 
 type_specifier:
-    TIP
-    | PUBLIC TIP
-    | PRIVAT TIP
-    | CONST TIP
-    | GLOBAL TIP
-    | VECTOR TIP
-    | EVAL TIP
-    | TYPEOF TIP
-    | NUME_ARBITRAR TIP
-    | VOID TIP  // Acest lucru ar trebui să fie un terminal, nu un nonterminal
+    TIP { $$ = $1; }
+    | PUBLIC TIP { $$ = $2; }
+    | PRIVAT TIP { $$ = $2; }
+    | CONST TIP { $$ = $2; }
+    | GLOBAL TIP { $$ = $2; }
+    | VECTOR TIP { $$ = $2; }
+    | EVAL TIP { $$ = $2; }
+    | TYPEOF TIP { $$ = $2; }
+    | NUME_ARBITRAR TIP { $$ = $2; }
+    | VOID TIP { $$ = $2; }
     ;
 
 global_variables:
@@ -103,7 +118,7 @@ global_variables:
     ;
 
 function_definition:
-    FUNCTIE IDENTIFIER PARANTEZA_DESCHISA function_params PARANTEZA_INCHISA ACOLADA_DESCHISA function_body ACOLADA_INCHISA
+    FUNCTIE IDENTIFIER {FunctionContext($2);} PARANTEZA_DESCHISA function_params PARANTEZA_INCHISA {DeclareFunction($1, $2, $5);} ACOLADA_DESCHISA function_body ACOLADA_INCHISA { ExitContext(); }
     ;
 
 function_params:
@@ -152,6 +167,9 @@ expression_constant:
 expression:
     IDENTIFIER
     | constant
+    {
+         
+    }
     | expression PLUS expression
     | expression MINUS expression
     | expression INMULTIT expression
@@ -183,7 +201,7 @@ constant:
     ;
 
 main_function:
-    PRINCIPAL PARANTEZA_DESCHISA PARANTEZA_INCHISA ACOLADA_DESCHISA statement_list ACOLADA_INCHISA
+    MAIN PARANTEZA_DESCHISA PARANTEZA_INCHISA ACOLADA_DESCHISA statement_list ACOLADA_INCHISA
     ;
 %%
 
@@ -194,3 +212,15 @@ void yyerror(const char *s) {
 
 
 
+int main(int argc, char** argv) {
+  yyin = fopen(argv[1], "r");
+  yyparse();
+
+  FILE* variableTable = fopen("tabels/symbol_table.txt", "w");
+  DumpObjectsToFile(variableTable);
+
+  FILE* functionTable = fopen("tabels/symbol_table_functions.txt", "w");
+  DumpFunctionsToFile(functionTable);
+
+  return 0;
+}

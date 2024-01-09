@@ -3,6 +3,7 @@
 #include <iostream>
 #include "comp.tab.h"
 #include <string>
+#include "y.tab.h"
 %}
 
 %%
@@ -13,18 +14,19 @@
 "Bool"      { yylval.bool_value = (strcmp(yytext, "true") == 0); return BOOL; }
 "True"      { yylval.identifier = strdup(yytext); return BOOL_TRUE; }
 "False"     { yylval.identifier = strdup(yytext); return BOOL_FALSE; }
+"void"      {return VOID; }
 
-
+"main"      { return MAIN;}
+"global"    { return GLOBAL; }
 "clasa"     { return CLASA; }
 "public"    { return PUBLIC; }
 "privat"    { return PRIVAT; }
 "const"     { return CONST; }
 "functie"   { return FUNCTIE; }
-"global"    { return GLOBAL; }
-"principal" { return PRINCIPAL; }
+
 "tip"       { return TIP; }
 "vector"    { return VECTOR; }
-"Eval"      { return EVAL; }
+"eval"      { return EVAL; }
 "TypeOf"    { return TYPEOF; }
 "="         { return EGAL; }
 "if"        { return IF; }
@@ -33,6 +35,8 @@
 "{"         { return ACOLADA_DESCHISA; }
 "}"         { return ACOLADA_INCHISA; }
 "("         { return PARANTEZA_DESCHISA; }
+"["         {return PARANTEZAPATDESCHISA;}
+"]"         {return PARANTEZAPATINCHISA;}
 ")"         { return PARANTEZA_INCHISA; }
 "+"         { return PLUS; }
 "-"         { return MINUS; }
@@ -49,6 +53,7 @@
 ">="        { return MAI_MARE_EGAL; }
 ","         { return COMMA; }
 ";"         { return SEMICOLON; }
+"."         {return PUNCT;}
 
 ~[_a-zA-Z][_a-zA-Z0-9]* { yylval.value = strdup(yytext); return IDENTIFIER; }
 [_a-zA-Z][_a-zA-Z0-9]*  { yylval.value = strdup(yytext); return NUME_ARBITRAR; }

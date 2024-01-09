@@ -70,15 +70,16 @@
 #line 1 "comp.y"
 
 #include <stdio.h>
-#include <string>
-#include <iostream>
-#include "y.tab.h" 
+#include <string.h>
+#include <stdlib.h>
+#include <stdbool.h>
 #include "SymbolTable.h"
+extern FILE* yyin;
 int yylex();
 extern int yylineno;
 void yyerror(const char *s);
 
-#line 82 "y.tab.c"
+#line 83 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -134,7 +135,7 @@ extern int yydebug;
     CONST = 267,                   /* CONST  */
     FUNCTIE = 268,                 /* FUNCTIE  */
     GLOBAL = 269,                  /* GLOBAL  */
-    PRINCIPAL = 270,               /* PRINCIPAL  */
+    MAIN = 270,                    /* MAIN  */
     TIP = 271,                     /* TIP  */
     VECTOR = 272,                  /* VECTOR  */
     EVAL = 273,                    /* EVAL  */
@@ -190,7 +191,7 @@ extern int yydebug;
 #define CONST 267
 #define FUNCTIE 268
 #define GLOBAL 269
-#define PRINCIPAL 270
+#define MAIN 270
 #define TIP 271
 #define VECTOR 272
 #define EVAL 273
@@ -231,7 +232,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 12 "comp.y"
+#line 13 "comp.y"
 
      std::string* str;
     int num;
@@ -243,7 +244,7 @@ union YYSTYPE
     bool bool_value; 
     char* value;  
 
-#line 247 "y.tab.c"
+#line 248 "y.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -278,7 +279,7 @@ enum yysymbol_kind_t
   YYSYMBOL_CONST = 12,                     /* CONST  */
   YYSYMBOL_FUNCTIE = 13,                   /* FUNCTIE  */
   YYSYMBOL_GLOBAL = 14,                    /* GLOBAL  */
-  YYSYMBOL_PRINCIPAL = 15,                 /* PRINCIPAL  */
+  YYSYMBOL_MAIN = 15,                      /* MAIN  */
   YYSYMBOL_TIP = 16,                       /* TIP  */
   YYSYMBOL_VECTOR = 17,                    /* VECTOR  */
   YYSYMBOL_EVAL = 18,                      /* EVAL  */
@@ -726,15 +727,15 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    41,    41,    48,    49,    50,    51,    52,    53,    54,
-      55,    59,    60,    65,    69,    73,    74,    75,    76,    80,
-      81,    85,    89,    90,    91,    92,    93,    94,    95,    96,
-      97,    98,   102,   106,   110,   111,   115,   119,   120,   124,
-     125,   129,   133,   134,   135,   139,   140,   141,   142,   143,
-     144,   145,   146,   147,   148,   149,   153,   154,   155,   156,
-     157,   158,   159,   160,   161,   162,   163,   164,   165,   166,
-     167,   171,   172,   173,   174,   175,   176,   177,   178,   179,
-     180,   181,   182,   186
+       0,    42,    42,    49,    50,    51,    52,    53,    54,    55,
+      56,    60,    61,    66,    70,    74,    75,    76,    77,    81,
+      82,    86,    90,    91,    92,    93,    94,    95,    96,    97,
+      98,    99,   103,   107,   111,   112,   116,   120,   121,   125,
+     126,   130,   134,   135,   136,   140,   141,   142,   143,   144,
+     145,   146,   147,   148,   149,   150,   154,   155,   159,   160,
+     161,   162,   163,   164,   165,   166,   167,   168,   169,   170,
+     171,   175,   176,   177,   178,   179,   180,   181,   182,   183,
+     184,   185,   186,   190
 };
 #endif
 
@@ -752,8 +753,8 @@ static const char *const yytname[] =
 {
   "\"end of file\"", "error", "\"invalid token\"", "INTEGER", "FLOAT",
   "CHAR", "STRING", "BOOL", "VOID", "CLASA", "PUBLIC", "PRIVAT", "CONST",
-  "FUNCTIE", "GLOBAL", "PRINCIPAL", "TIP", "VECTOR", "EVAL", "TYPEOF",
-  "EGAL", "IF", "FOR", "WHILE", "ACOLADA_DESCHISA", "ACOLADA_INCHISA",
+  "FUNCTIE", "GLOBAL", "MAIN", "TIP", "VECTOR", "EVAL", "TYPEOF", "EGAL",
+  "IF", "FOR", "WHILE", "ACOLADA_DESCHISA", "ACOLADA_INCHISA",
   "PARANTEZA_DESCHISA", "PARANTEZA_INCHISA", "SEMICOLON", "PLUS", "MINUS",
   "INMULTIT", "IMPARTIT", "SI_LOGIC", "SAU_LOGIC", "NEGARE", "EGALITATE",
   "DIFERIT", "COMMA", "MAI_MIC", "MAI_MIC_EGAL", "MAI_MARE",
@@ -1417,8 +1418,16 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
+  case 57: /* expression: constant  */
+#line 156 "comp.y"
+    {
+         
+    }
+#line 1427 "y.tab.c"
+    break;
 
-#line 1422 "y.tab.c"
+
+#line 1431 "y.tab.c"
 
       default: break;
     }
@@ -1611,7 +1620,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 188 "comp.y"
+#line 192 "comp.y"
 
 
 void yyerror(const char *s) {
@@ -1621,3 +1630,15 @@ void yyerror(const char *s) {
 
 
 
+int main(int argc, char** argv) {
+  yyin = fopen(argv[1], "r");
+  yyparse();
+
+  FILE* variableTable = fopen("tabels/symbol_table.txt", "w");
+  DumpObjectsToFile(variableTable);
+
+  FILE* functionTable = fopen("tabels/symbol_table_functions.txt", "w");
+  DumpFunctionsToFile(functionTable);
+
+  return 0;
+}
