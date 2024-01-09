@@ -54,54 +54,65 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    INTEGER = 258,                 /* INTEGER  */
-    FLOAT = 259,                   /* FLOAT  */
-    CHAR = 260,                    /* CHAR  */
-    STRING = 261,                  /* STRING  */
-    BOOL = 262,                    /* BOOL  */
-    VOID = 263,                    /* VOID  */
-    CLASA = 264,                   /* CLASA  */
-    PUBLIC = 265,                  /* PUBLIC  */
-    PRIVAT = 266,                  /* PRIVAT  */
-    CONST = 267,                   /* CONST  */
-    FUNCTIE = 268,                 /* FUNCTIE  */
-    GLOBAL = 269,                  /* GLOBAL  */
-    PRINCIPAL = 270,               /* PRINCIPAL  */
-    TIP = 271,                     /* TIP  */
-    VECTOR = 272,                  /* VECTOR  */
-    EVAL = 273,                    /* EVAL  */
-    TYPEOF = 274,                  /* TYPEOF  */
-    EGAL = 275,                    /* EGAL  */
-    IF = 276,                      /* IF  */
-    FOR = 277,                     /* FOR  */
-    WHILE = 278,                   /* WHILE  */
-    ACOLADA_DESCHISA = 279,        /* ACOLADA_DESCHISA  */
-    ACOLADA_INCHISA = 280,         /* ACOLADA_INCHISA  */
-    PARANTEZA_DESCHISA = 281,      /* PARANTEZA_DESCHISA  */
-    PARANTEZA_INCHISA = 282,       /* PARANTEZA_INCHISA  */
-    SEMICOLON = 283,               /* SEMICOLON  */
-    PLUS = 284,                    /* PLUS  */
-    MINUS = 285,                   /* MINUS  */
-    INMULTIT = 286,                /* INMULTIT  */
-    IMPARTIT = 287,                /* IMPARTIT  */
-    SI_LOGIC = 288,                /* SI_LOGIC  */
-    SAU_LOGIC = 289,               /* SAU_LOGIC  */
-    NEGARE = 290,                  /* NEGARE  */
-    EGALITATE = 291,               /* EGALITATE  */
-    DIFERIT = 292,                 /* DIFERIT  */
-    COMMA = 293,                   /* COMMA  */
-    MAI_MIC = 294,                 /* MAI_MIC  */
-    MAI_MIC_EGAL = 295,            /* MAI_MIC_EGAL  */
-    MAI_MARE = 296,                /* MAI_MARE  */
-    MAI_MARE_EGAL = 297,           /* MAI_MARE_EGAL  */
-    BOOL_TRUE = 298,               /* BOOL_TRUE  */
-    BOOL_FALSE = 299,              /* BOOL_FALSE  */
-    IDENTIFIER = 300,              /* IDENTIFIER  */
-    NUME_ARBITRAR = 301,           /* NUME_ARBITRAR  */
-    NUMAR = 302,                   /* NUMAR  */
-    NUMAR_FLOAT = 303,             /* NUMAR_FLOAT  */
-    QUOTES_STRING = 304,           /* QUOTES_STRING  */
-    CARACTER = 305                 /* CARACTER  */
+    VOID = 258,                    /* VOID  */
+    CLASA = 259,                   /* CLASA  */
+    CONSTANT = 260,                /* CONSTANT  */
+    PUBLIC = 261,                  /* PUBLIC  */
+    PRIVAT = 262,                  /* PRIVAT  */
+    DECLARATION_SECTION = 263,     /* DECLARATION_SECTION  */
+    CUSTOMTYPES_SECTION = 264,     /* CUSTOMTYPES_SECTION  */
+    MAIN_SECTION = 265,            /* MAIN_SECTION  */
+    ASSIGN = 266,                  /* ASSIGN  */
+    PARANTEZAPATDESCHISA = 267,    /* PARANTEZAPATDESCHISA  */
+    PARANTEZAPATINCHISA = 268,     /* PARANTEZAPATINCHISA  */
+    PARANTEZAROTDESCHISA = 269,    /* PARANTEZAROTDESCHISA  */
+    PARANTEZAROTINCHISA = 270,     /* PARANTEZAROTINCHISA  */
+    ACOLDESCHISA = 271,            /* ACOLDESCHISA  */
+    ACOLINCHISA = 272,             /* ACOLINCHISA  */
+    PUNCTSIVIRGULA = 273,          /* PUNCTSIVIRGULA  */
+    VIRGULA = 274,                 /* VIRGULA  */
+    PUNCT = 275,                   /* PUNCT  */
+    IFSTMT = 276,                  /* IFSTMT  */
+    ELSESTMT = 277,                /* ELSESTMT  */
+    FORSTMT = 278,                 /* FORSTMT  */
+    DOSTMT = 279,                  /* DOSTMT  */
+    WHILESTMT = 280,               /* WHILESTMT  */
+    RETURNSTMT = 281,              /* RETURNSTMT  */
+    PRINT = 282,                   /* PRINT  */
+    BOOLEAN_AND = 283,             /* BOOLEAN_AND  */
+    BOOLEAN_OR = 284,              /* BOOLEAN_OR  */
+    BOOLEAN_NOT = 285,             /* BOOLEAN_NOT  */
+    BOOLEAN_LT = 286,              /* BOOLEAN_LT  */
+    BOOLEAN_LTE = 287,             /* BOOLEAN_LTE  */
+    BOOLEAN_GTE = 288,             /* BOOLEAN_GTE  */
+    BOOLEAN_EQ = 289,              /* BOOLEAN_EQ  */
+    BOOLEAN_NEQ = 290,             /* BOOLEAN_NEQ  */
+    ARITHMETIC_INCREMENT = 291,    /* ARITHMETIC_INCREMENT  */
+    ARITHMETIC_DECREMENT = 292,    /* ARITHMETIC_DECREMENT  */
+    ARITHMETIC_ADD = 293,          /* ARITHMETIC_ADD  */
+    ARITHMETIC_SUB = 294,          /* ARITHMETIC_SUB  */
+    ARITHMETIC_DIV = 295,          /* ARITHMETIC_DIV  */
+    BOOLEAN_GT = 296,              /* BOOLEAN_GT  */
+    ARITHMETIC_MUL = 297,          /* ARITHMETIC_MUL  */
+    ARITHMETIC_POW = 298,          /* ARITHMETIC_POW  */
+    INTEGER = 299,                 /* INTEGER  */
+    FLOAT = 300,                   /* FLOAT  */
+    CHAR = 301,                    /* CHAR  */
+    STRING = 302,                  /* STRING  */
+    BOOL = 303,                    /* BOOL  */
+    BOOL_TRUE = 304,               /* BOOL_TRUE  */
+    BOOL_FALSE = 305,              /* BOOL_FALSE  */
+    IDENTIFIER = 306,              /* IDENTIFIER  */
+    NUME_ARBITRAR = 307,           /* NUME_ARBITRAR  */
+    NUMAR = 308,                   /* NUMAR  */
+    NUMAR_FLOAT = 309,             /* NUMAR_FLOAT  */
+    QUOTES_STRING = 310,           /* QUOTES_STRING  */
+    CARACTER = 311,                /* CARACTER  */
+    MAX = 312,                     /* MAX  */
+    MIN = 313,                     /* MIN  */
+    LEN = 314,                     /* LEN  */
+    GCD = 315,                     /* GCD  */
+    RANDOMINT = 316                /* RANDOMINT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -110,19 +121,14 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 12 "comp.y"
+#line 13 "comp.y"
 
-     std::string* str;
     int num;
-    float num_float;
-    bool boolean;
-    char character;
-    char* string;
-    char* identifier;
-    bool bool_value; 
-    char* value;  
+    char* value;
+    Node* ASTNODE;
+    Array arr;
 
-#line 126 "comp.tab.h"
+#line 132 "comp.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

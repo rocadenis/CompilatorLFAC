@@ -66,7 +66,7 @@ extern int yydebug;
     CONST = 267,                   /* CONST  */
     FUNCTIE = 268,                 /* FUNCTIE  */
     GLOBAL = 269,                  /* GLOBAL  */
-    PRINCIPAL = 270,               /* PRINCIPAL  */
+    MAIN = 270,                    /* MAIN  */
     TIP = 271,                     /* TIP  */
     VECTOR = 272,                  /* VECTOR  */
     EVAL = 273,                    /* EVAL  */
@@ -122,7 +122,7 @@ extern int yydebug;
 #define CONST 267
 #define FUNCTIE 268
 #define GLOBAL 269
-#define PRINCIPAL 270
+#define MAIN 270
 #define TIP 271
 #define VECTOR 272
 #define EVAL 273
@@ -163,7 +163,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 12 "comp.y"
+#line 13 "comp.y"
 
      std::string* str;
     int num;
