@@ -1,5 +1,5 @@
 #pragma once
-#include "definitions.h"
+#include "definition.h"
 
 void AddFunction(Function func)
 {

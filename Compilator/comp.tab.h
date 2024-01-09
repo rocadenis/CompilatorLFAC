@@ -54,65 +54,63 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    VOID = 258,                    /* VOID  */
-    CLASA = 259,                   /* CLASA  */
-    CONSTANT = 260,                /* CONSTANT  */
-    PUBLIC = 261,                  /* PUBLIC  */
-    PRIVAT = 262,                  /* PRIVAT  */
-    DECLARATION_SECTION = 263,     /* DECLARATION_SECTION  */
-    CUSTOMTYPES_SECTION = 264,     /* CUSTOMTYPES_SECTION  */
-    MAIN_SECTION = 265,            /* MAIN_SECTION  */
-    ASSIGN = 266,                  /* ASSIGN  */
-    PARANTEZAPATDESCHISA = 267,    /* PARANTEZAPATDESCHISA  */
-    PARANTEZAPATINCHISA = 268,     /* PARANTEZAPATINCHISA  */
-    PARANTEZAROTDESCHISA = 269,    /* PARANTEZAROTDESCHISA  */
-    PARANTEZAROTINCHISA = 270,     /* PARANTEZAROTINCHISA  */
-    ACOLDESCHISA = 271,            /* ACOLDESCHISA  */
-    ACOLINCHISA = 272,             /* ACOLINCHISA  */
-    PUNCTSIVIRGULA = 273,          /* PUNCTSIVIRGULA  */
-    VIRGULA = 274,                 /* VIRGULA  */
-    PUNCT = 275,                   /* PUNCT  */
-    IFSTMT = 276,                  /* IFSTMT  */
-    ELSESTMT = 277,                /* ELSESTMT  */
-    FORSTMT = 278,                 /* FORSTMT  */
-    DOSTMT = 279,                  /* DOSTMT  */
-    WHILESTMT = 280,               /* WHILESTMT  */
-    RETURNSTMT = 281,              /* RETURNSTMT  */
-    PRINT = 282,                   /* PRINT  */
-    BOOLEAN_AND = 283,             /* BOOLEAN_AND  */
-    BOOLEAN_OR = 284,              /* BOOLEAN_OR  */
-    BOOLEAN_NOT = 285,             /* BOOLEAN_NOT  */
-    BOOLEAN_LT = 286,              /* BOOLEAN_LT  */
-    BOOLEAN_LTE = 287,             /* BOOLEAN_LTE  */
-    BOOLEAN_GTE = 288,             /* BOOLEAN_GTE  */
-    BOOLEAN_EQ = 289,              /* BOOLEAN_EQ  */
-    BOOLEAN_NEQ = 290,             /* BOOLEAN_NEQ  */
-    ARITHMETIC_INCREMENT = 291,    /* ARITHMETIC_INCREMENT  */
-    ARITHMETIC_DECREMENT = 292,    /* ARITHMETIC_DECREMENT  */
-    ARITHMETIC_ADD = 293,          /* ARITHMETIC_ADD  */
-    ARITHMETIC_SUB = 294,          /* ARITHMETIC_SUB  */
-    ARITHMETIC_DIV = 295,          /* ARITHMETIC_DIV  */
-    BOOLEAN_GT = 296,              /* BOOLEAN_GT  */
-    ARITHMETIC_MUL = 297,          /* ARITHMETIC_MUL  */
-    ARITHMETIC_POW = 298,          /* ARITHMETIC_POW  */
-    INTEGER = 299,                 /* INTEGER  */
-    FLOAT = 300,                   /* FLOAT  */
-    CHAR = 301,                    /* CHAR  */
-    STRING = 302,                  /* STRING  */
-    BOOL = 303,                    /* BOOL  */
-    BOOL_TRUE = 304,               /* BOOL_TRUE  */
-    BOOL_FALSE = 305,              /* BOOL_FALSE  */
-    IDENTIFIER = 306,              /* IDENTIFIER  */
-    NUME_ARBITRAR = 307,           /* NUME_ARBITRAR  */
-    NUMAR = 308,                   /* NUMAR  */
-    NUMAR_FLOAT = 309,             /* NUMAR_FLOAT  */
-    QUOTES_STRING = 310,           /* QUOTES_STRING  */
-    CARACTER = 311,                /* CARACTER  */
-    MAX = 312,                     /* MAX  */
-    MIN = 313,                     /* MIN  */
-    LEN = 314,                     /* LEN  */
-    GCD = 315,                     /* GCD  */
-    RANDOMINT = 316                /* RANDOMINT  */
+    INTEGER = 258,                 /* INTEGER  */
+    FLOAT = 259,                   /* FLOAT  */
+    CHAR = 260,                    /* CHAR  */
+    STRING = 261,                  /* STRING  */
+    BOOL = 262,                    /* BOOL  */
+    VOID = 263,                    /* VOID  */
+    IDENTIFIER = 264,              /* IDENTIFIER  */
+    ARITHMETIC_POW = 265,          /* ARITHMETIC_POW  */
+    CLASA = 266,                   /* CLASA  */
+    PUBLIC = 267,                  /* PUBLIC  */
+    PRIVAT = 268,                  /* PRIVAT  */
+    CONST = 269,                   /* CONST  */
+    FUNCTIE = 270,                 /* FUNCTIE  */
+    GLOBAL = 271,                  /* GLOBAL  */
+    MAIN = 272,                    /* MAIN  */
+    TIP = 273,                     /* TIP  */
+    VECTOR = 274,                  /* VECTOR  */
+    TYPEOF = 275,                  /* TYPEOF  */
+    EGAL = 276,                    /* EGAL  */
+    IF = 277,                      /* IF  */
+    FOR = 278,                     /* FOR  */
+    WHILE = 279,                   /* WHILE  */
+    ACOLADA_DESCHISA = 280,        /* ACOLADA_DESCHISA  */
+    ACOLADA_INCHISA = 281,         /* ACOLADA_INCHISA  */
+    PARANTEZA_DESCHISA = 282,      /* PARANTEZA_DESCHISA  */
+    PARANTEZA_INCHISA = 283,       /* PARANTEZA_INCHISA  */
+    SEMICOLON = 284,               /* SEMICOLON  */
+    PARANTEZAPATDESCHISA = 285,    /* PARANTEZAPATDESCHISA  */
+    PARANTEZAPATINCHISA = 286,     /* PARANTEZAPATINCHISA  */
+    PLUS = 287,                    /* PLUS  */
+    MINUS = 288,                   /* MINUS  */
+    INMULTIT = 289,                /* INMULTIT  */
+    IMPARTIT = 290,                /* IMPARTIT  */
+    SI_LOGIC = 291,                /* SI_LOGIC  */
+    SAU_LOGIC = 292,               /* SAU_LOGIC  */
+    NEGARE = 293,                  /* NEGARE  */
+    EGALITATE = 294,               /* EGALITATE  */
+    DIFERIT = 295,                 /* DIFERIT  */
+    COMMA = 296,                   /* COMMA  */
+    PUNCT = 297,                   /* PUNCT  */
+    MAI_MIC = 298,                 /* MAI_MIC  */
+    MAI_MIC_EGAL = 299,            /* MAI_MIC_EGAL  */
+    MAI_MARE = 300,                /* MAI_MARE  */
+    MAI_MARE_EGAL = 301,           /* MAI_MARE_EGAL  */
+    BOOL_TRUE = 302,               /* BOOL_TRUE  */
+    BOOL_FALSE = 303,              /* BOOL_FALSE  */
+    NUME_ARBITRAR = 304,           /* NUME_ARBITRAR  */
+    NUMAR = 305,                   /* NUMAR  */
+    NUMAR_FLOAT = 306,             /* NUMAR_FLOAT  */
+    QUOTES_STRING = 307,           /* QUOTES_STRING  */
+    CARACTER = 308,                /* CARACTER  */
+    PRINT = 309,                   /* PRINT  */
+    MAX = 310,                     /* MAX  */
+    MIN = 311,                     /* MIN  */
+    GCD = 312,                     /* GCD  */
+    LEN = 313,                     /* LEN  */
+    RANDOMINT = 314                /* RANDOMINT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -121,14 +119,21 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 13 "comp.y"
+#line 23 "comp.y"
 
+    std::string* str;
     int num;
-    char* value;
+    float num_float;
+    bool boolean;
+    char character;
+    char* string;
+    char* identifier;
     Node* ASTNODE;
+    bool bool_value; 
+    char* value;  
     Array arr;
 
-#line 132 "comp.tab.h"
+#line 137 "comp.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

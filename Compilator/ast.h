@@ -1,6 +1,6 @@
 #pragma once
 #include <math.h>
-#include "definitions.h"
+#include "definition.h"
 
 
 void PrintFunction(char* str1, char* str2)

@@ -1,5 +1,5 @@
 #pragma once
-#include "definitions.h"
+#include "definition.h"
 
 
 int max(int _a, int _b)
@@ -157,5 +157,11 @@ char* DecideValueType(char* value)
     }
 
     return "Void";
+
+}
+void TypeOf(char* response){
+
+        char* dataType =  DecideValueType(response);
+        printf("Type is: %s \n", dataType);
 
 }
