@@ -60,48 +60,57 @@ extern int yydebug;
     STRING = 261,                  /* STRING  */
     BOOL = 262,                    /* BOOL  */
     VOID = 263,                    /* VOID  */
-    CLASA = 264,                   /* CLASA  */
-    PUBLIC = 265,                  /* PUBLIC  */
-    PRIVAT = 266,                  /* PRIVAT  */
-    CONST = 267,                   /* CONST  */
-    FUNCTIE = 268,                 /* FUNCTIE  */
-    GLOBAL = 269,                  /* GLOBAL  */
-    MAIN = 270,                    /* MAIN  */
-    TIP = 271,                     /* TIP  */
-    VECTOR = 272,                  /* VECTOR  */
-    EVAL = 273,                    /* EVAL  */
-    TYPEOF = 274,                  /* TYPEOF  */
-    EGAL = 275,                    /* EGAL  */
-    IF = 276,                      /* IF  */
-    FOR = 277,                     /* FOR  */
-    WHILE = 278,                   /* WHILE  */
-    ACOLADA_DESCHISA = 279,        /* ACOLADA_DESCHISA  */
-    ACOLADA_INCHISA = 280,         /* ACOLADA_INCHISA  */
-    PARANTEZA_DESCHISA = 281,      /* PARANTEZA_DESCHISA  */
-    PARANTEZA_INCHISA = 282,       /* PARANTEZA_INCHISA  */
-    SEMICOLON = 283,               /* SEMICOLON  */
-    PLUS = 284,                    /* PLUS  */
-    MINUS = 285,                   /* MINUS  */
-    INMULTIT = 286,                /* INMULTIT  */
-    IMPARTIT = 287,                /* IMPARTIT  */
-    SI_LOGIC = 288,                /* SI_LOGIC  */
-    SAU_LOGIC = 289,               /* SAU_LOGIC  */
-    NEGARE = 290,                  /* NEGARE  */
-    EGALITATE = 291,               /* EGALITATE  */
-    DIFERIT = 292,                 /* DIFERIT  */
-    COMMA = 293,                   /* COMMA  */
-    MAI_MIC = 294,                 /* MAI_MIC  */
-    MAI_MIC_EGAL = 295,            /* MAI_MIC_EGAL  */
-    MAI_MARE = 296,                /* MAI_MARE  */
-    MAI_MARE_EGAL = 297,           /* MAI_MARE_EGAL  */
-    BOOL_TRUE = 298,               /* BOOL_TRUE  */
-    BOOL_FALSE = 299,              /* BOOL_FALSE  */
-    IDENTIFIER = 300,              /* IDENTIFIER  */
-    NUME_ARBITRAR = 301,           /* NUME_ARBITRAR  */
-    NUMAR = 302,                   /* NUMAR  */
-    NUMAR_FLOAT = 303,             /* NUMAR_FLOAT  */
-    QUOTES_STRING = 304,           /* QUOTES_STRING  */
-    CARACTER = 305                 /* CARACTER  */
+    IDENTIFIER = 264,              /* IDENTIFIER  */
+    ARITHMETIC_POW = 265,          /* ARITHMETIC_POW  */
+    CLASA = 266,                   /* CLASA  */
+    PUBLIC = 267,                  /* PUBLIC  */
+    PRIVAT = 268,                  /* PRIVAT  */
+    CONST = 269,                   /* CONST  */
+    FUNCTIE = 270,                 /* FUNCTIE  */
+    GLOBAL = 271,                  /* GLOBAL  */
+    MAIN = 272,                    /* MAIN  */
+    TIP = 273,                     /* TIP  */
+    VECTOR = 274,                  /* VECTOR  */
+    TYPEOF = 275,                  /* TYPEOF  */
+    EGAL = 276,                    /* EGAL  */
+    IF = 277,                      /* IF  */
+    FOR = 278,                     /* FOR  */
+    WHILE = 279,                   /* WHILE  */
+    ACOLADA_DESCHISA = 280,        /* ACOLADA_DESCHISA  */
+    ACOLADA_INCHISA = 281,         /* ACOLADA_INCHISA  */
+    PARANTEZA_DESCHISA = 282,      /* PARANTEZA_DESCHISA  */
+    PARANTEZA_INCHISA = 283,       /* PARANTEZA_INCHISA  */
+    SEMICOLON = 284,               /* SEMICOLON  */
+    PARANTEZAPATDESCHISA = 285,    /* PARANTEZAPATDESCHISA  */
+    PARANTEZAPATINCHISA = 286,     /* PARANTEZAPATINCHISA  */
+    PLUS = 287,                    /* PLUS  */
+    MINUS = 288,                   /* MINUS  */
+    INMULTIT = 289,                /* INMULTIT  */
+    IMPARTIT = 290,                /* IMPARTIT  */
+    SI_LOGIC = 291,                /* SI_LOGIC  */
+    SAU_LOGIC = 292,               /* SAU_LOGIC  */
+    NEGARE = 293,                  /* NEGARE  */
+    EGALITATE = 294,               /* EGALITATE  */
+    DIFERIT = 295,                 /* DIFERIT  */
+    COMMA = 296,                   /* COMMA  */
+    PUNCT = 297,                   /* PUNCT  */
+    MAI_MIC = 298,                 /* MAI_MIC  */
+    MAI_MIC_EGAL = 299,            /* MAI_MIC_EGAL  */
+    MAI_MARE = 300,                /* MAI_MARE  */
+    MAI_MARE_EGAL = 301,           /* MAI_MARE_EGAL  */
+    BOOL_TRUE = 302,               /* BOOL_TRUE  */
+    BOOL_FALSE = 303,              /* BOOL_FALSE  */
+    NUME_ARBITRAR = 304,           /* NUME_ARBITRAR  */
+    NUMAR = 305,                   /* NUMAR  */
+    NUMAR_FLOAT = 306,             /* NUMAR_FLOAT  */
+    QUOTES_STRING = 307,           /* QUOTES_STRING  */
+    CARACTER = 308,                /* CARACTER  */
+    PRINT = 309,                   /* PRINT  */
+    MAX = 310,                     /* MAX  */
+    MIN = 311,                     /* MIN  */
+    GCD = 312,                     /* GCD  */
+    LEN = 313,                     /* LEN  */
+    RANDOMINT = 314                /* RANDOMINT  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -116,66 +125,77 @@ extern int yydebug;
 #define STRING 261
 #define BOOL 262
 #define VOID 263
-#define CLASA 264
-#define PUBLIC 265
-#define PRIVAT 266
-#define CONST 267
-#define FUNCTIE 268
-#define GLOBAL 269
-#define MAIN 270
-#define TIP 271
-#define VECTOR 272
-#define EVAL 273
-#define TYPEOF 274
-#define EGAL 275
-#define IF 276
-#define FOR 277
-#define WHILE 278
-#define ACOLADA_DESCHISA 279
-#define ACOLADA_INCHISA 280
-#define PARANTEZA_DESCHISA 281
-#define PARANTEZA_INCHISA 282
-#define SEMICOLON 283
-#define PLUS 284
-#define MINUS 285
-#define INMULTIT 286
-#define IMPARTIT 287
-#define SI_LOGIC 288
-#define SAU_LOGIC 289
-#define NEGARE 290
-#define EGALITATE 291
-#define DIFERIT 292
-#define COMMA 293
-#define MAI_MIC 294
-#define MAI_MIC_EGAL 295
-#define MAI_MARE 296
-#define MAI_MARE_EGAL 297
-#define BOOL_TRUE 298
-#define BOOL_FALSE 299
-#define IDENTIFIER 300
-#define NUME_ARBITRAR 301
-#define NUMAR 302
-#define NUMAR_FLOAT 303
-#define QUOTES_STRING 304
-#define CARACTER 305
+#define IDENTIFIER 264
+#define ARITHMETIC_POW 265
+#define CLASA 266
+#define PUBLIC 267
+#define PRIVAT 268
+#define CONST 269
+#define FUNCTIE 270
+#define GLOBAL 271
+#define MAIN 272
+#define TIP 273
+#define VECTOR 274
+#define TYPEOF 275
+#define EGAL 276
+#define IF 277
+#define FOR 278
+#define WHILE 279
+#define ACOLADA_DESCHISA 280
+#define ACOLADA_INCHISA 281
+#define PARANTEZA_DESCHISA 282
+#define PARANTEZA_INCHISA 283
+#define SEMICOLON 284
+#define PARANTEZAPATDESCHISA 285
+#define PARANTEZAPATINCHISA 286
+#define PLUS 287
+#define MINUS 288
+#define INMULTIT 289
+#define IMPARTIT 290
+#define SI_LOGIC 291
+#define SAU_LOGIC 292
+#define NEGARE 293
+#define EGALITATE 294
+#define DIFERIT 295
+#define COMMA 296
+#define PUNCT 297
+#define MAI_MIC 298
+#define MAI_MIC_EGAL 299
+#define MAI_MARE 300
+#define MAI_MARE_EGAL 301
+#define BOOL_TRUE 302
+#define BOOL_FALSE 303
+#define NUME_ARBITRAR 304
+#define NUMAR 305
+#define NUMAR_FLOAT 306
+#define QUOTES_STRING 307
+#define CARACTER 308
+#define PRINT 309
+#define MAX 310
+#define MIN 311
+#define GCD 312
+#define LEN 313
+#define RANDOMINT 314
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 13 "comp.y"
+#line 23 "comp.y"
 
-     std::string* str;
+    std::string* str;
     int num;
     float num_float;
     bool boolean;
     char character;
     char* string;
     char* identifier;
+    Node* ASTNODE;
     bool bool_value; 
     char* value;  
+    Array arr;
 
-#line 179 "y.tab.h"
+#line 199 "y.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

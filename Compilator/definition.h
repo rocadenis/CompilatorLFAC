@@ -6,9 +6,8 @@
 #include "y.tab.h"
 #include "context.h"
 #include "crearefctii.h"
-#include "definition.h"
 #include "functii.h"
-#include "strdate_f"
+#include "strdate_f.h"
 #include "tabele.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -116,3 +115,4 @@ char* predefined_min(char* __a, char* __b);
 char* predefined_len(char* __a);
 char* predefined_gcd(char* __a, char* __b);
 char* predefined_random();
+void TypeOf(char* response);

@@ -1,4 +1,4 @@
-#include "definitions.h"
+#include "definition.h"
 
 void FormatMessage(char* msg, Object obj)
 {

@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "comp.tab.h"
+#include "definition.h"
 #include <string>
 #include "y.tab.h"
 %}
@@ -26,7 +27,7 @@
 
 "tip"       { return TIP; }
 "vector"    { return VECTOR; }
-"eval"      { return EVAL; }
+"eval"      { return PRINT; }
 "TypeOf"    { return TYPEOF; }
 "="         { return EGAL; }
 "if"        { return IF; }
@@ -41,6 +42,7 @@
 "+"         { return PLUS; }
 "-"         { return MINUS; }
 "*"         { return INMULTIT; }
+"**"        {return ARITHMETIC_POW;}
 "/"         { return IMPARTIT; }
 "&&"        { return SI_LOGIC; }
 "||"        { return SAU_LOGIC; }
@@ -54,6 +56,16 @@
 ","         { return COMMA; }
 ";"         { return SEMICOLON; }
 "."         {return PUNCT;}
+
+"Print" {return PRINT;}
+"Max" {return MAX;}
+"Min" {return MIN;}
+"Len" {return LEN;}
+"GCD" {return GCD;}
+"RandomInt" {return RANDOMINT;}
+
+
+
 
 ~[_a-zA-Z][_a-zA-Z0-9]* { yylval.value = strdup(yytext); return IDENTIFIER; }
 [_a-zA-Z][_a-zA-Z0-9]*  { yylval.value = strdup(yytext); return NUME_ARBITRAR; }
